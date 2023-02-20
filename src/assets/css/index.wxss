@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  color: #484848;
+  text-align: none;
+}
+img {
+  vertical-align: top;
+}
+ul,
+li {
+  list-style: none;
+}
+:root {
+  --primary-color: #ff385c;
+}
+body {
+  font-size: 14px;
+  color: #484848;
+  font-family: Circular, PingFang-SC, 'Hiragino Sans GB', '微软雅黑', 'Microsoft YaHei', 'Heiti SC' !important;
+  --ant-primary-color: #EB4C60;
+}
+.frw,
+.fr {
+  display: flex;
+  flex-flow: row wrap;
+}
+.frcc {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+}
+.fccc {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+}
+.frcsb {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+}
