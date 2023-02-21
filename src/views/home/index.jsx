@@ -3,7 +3,10 @@ import { useSelector, useDispatch, shallowEqual } from 'react-redux'
 
 import HomeWrapper from './style'
 import Banner from './cpns/banners'
+import SectionHeader from '@/components/section-header'
 import { fetchHomeDataAction } from '@/store/modules/home'
+import SectionRoom from '@/components/section-room'
+
 
 const home = memo((props) => {
   // 从store中获取数据
@@ -21,7 +24,10 @@ const home = memo((props) => {
     <HomeWrapper>
       <Banner></Banner>
       <div className="content">
-        {goodPriceInfo.title}
+        <div className="goodPrice">
+          <SectionHeader title={goodPriceInfo.title}></SectionHeader>
+          <SectionRoom roomData={goodPriceInfo.list}></SectionRoom>
+        </div>
       </div>
     </HomeWrapper>
   )
