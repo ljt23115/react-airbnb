@@ -17,3 +17,21 @@ export function getHomeDiscountInfo() {
     url: '/home/discount'
   })
 }
+
+export function getHomeHotRecommendInfo() {
+  return axRequest.get({
+    url: '/home/hotrecommenddest'
+  })
+}
+
+export function getHomeLongForInfo() {
+  return axRequest.get({
+    url: '/home/longfor'
+  })
+}
+
+export function getHomePlusInfo() {
+  return axRequest.get({
+    url: '/home/plus'
+  })
+}

@@ -15,11 +15,11 @@ const SectionTabs = memo((props) => {
     <TabsWrapper>
       {
         tabNames?.map((item, index) => (
-          <div  className={classNames("item", { active: currentIndex === index })}   
+          <span  className={classNames("item", { active: currentIndex === index })}   
                 key={item} 
                 onClick={e => itemClick(item, index)}>
             {item}
-          </div>
+          </span>
         ))
       }
     </TabsWrapper>

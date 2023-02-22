@@ -4,6 +4,7 @@ const RoomWrapper = styled.div`
   width: ${props => props.roomWidth};
   padding-right: 16px;
   padding-bottom: 16px;
+  flex-shrink: 0;
   .cover {
     position: relative;
     padding: 66.6% 0 0;
