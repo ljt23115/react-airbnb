@@ -5,6 +5,35 @@ const RoomWrapper = styled.div`
   padding-right: 16px;
   padding-bottom: 16px;
   flex-shrink: 0;
+
+  .swiper {
+    position: relative;
+    &:hover .control {
+      display: block;
+    }
+    .control {
+      display: none;
+      color: white;
+      .cBtn {
+        height: 100%;
+        position: absolute;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+      }
+      .lBtn {
+        left: 0;
+        background-image: linear-gradient(to left, transparent 0%, rgba(0, 0, 0, 0.25) 100%);
+      }
+      .rBtn {
+        right: 0;
+        background-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.25) 100%);
+      }
+    }
+
+  }
+
   .cover {
     position: relative;
     padding: 66.6% 0 0;
@@ -16,6 +45,7 @@ const RoomWrapper = styled.div`
       top: 0;
       width: 100%;
       height: 100%;
+      object-fit: cover;
     }
   }
   .desc {

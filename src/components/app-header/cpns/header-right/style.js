@@ -4,6 +4,7 @@ const RightWrapper = styled.div`
   flex: 1;
   display: flex;
   justify-content: flex-end;
+  position: relative;
 
   .btn {
     font-size: 14px;
@@ -41,6 +42,7 @@ const RightWrapper = styled.div`
       border: 1px solid rgb(211, 211, 211);
       border-radius: 15px;
       background-color: white;
+      z-index: 105;
 
       .top, .bottom {
         display: flex;

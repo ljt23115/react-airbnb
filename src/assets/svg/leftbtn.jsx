@@ -1,7 +1,10 @@
 import React, { memo } from 'react'
 import { cssToObj } from './utils'
+import PropTypes from 'prop-types'
 
-const LeftBtn = memo(() => {
+const LeftBtn = memo((props) => {
+  const { width = 12, height = 12 } = props
+
   return (
     <div>
       <svg
@@ -11,7 +14,7 @@ const LeftBtn = memo(() => {
         aria-label="previous"
         focusable="false"
         style={cssToObj(
-          'height: 12px; width: 12px; display: block; fill: currentcolor;'
+          `height: ${height}px; width: ${width}px; display: block; fill: currentcolor;`
         )}
       >
         <path
@@ -22,5 +25,10 @@ const LeftBtn = memo(() => {
     </div>
   )
 })
+
+LeftBtn.prototypes = {
+  width: PropTypes.number,
+  height: PropTypes.number
+}
 
 export default LeftBtn

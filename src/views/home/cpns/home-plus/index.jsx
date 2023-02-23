@@ -15,7 +15,7 @@ const HomePlus = memo((props) => {
         <div className="plus-content">
           {
             sectionData.list?.map(item => (
-              <RoomItem itemData={item} roomNum={sectionData.list?.length}></RoomItem>
+              <RoomItem itemData={item} roomNum={sectionData.list?.length} key={item.id}></RoomItem>
             ))
           }
         </div>

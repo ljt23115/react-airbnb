@@ -14,7 +14,7 @@ const HomeLongFor = memo((props) => {
       <ScrollView>
         <div className="long-for">
           {
-            sectionData.list?.map(item => <LongForItem itemData={item}></LongForItem>)
+            sectionData.list?.map((item) => <LongForItem itemData={item} key={item.city}></LongForItem>)
           }
         </div>
       </ScrollView>
