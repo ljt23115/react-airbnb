@@ -24,4 +24,6 @@ class AxRequest {
   }
 }
 
-export default new AxRequest(BASE_URL, TIME_OUT)
+const axRequest = new AxRequest(BASE_URL, TIME_OUT)
+
+export default axRequest
