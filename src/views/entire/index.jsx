@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import React, { memo, useEffect } from 'react'
 import { useSelector, useDispatch, shallowEqual } from 'react-redux'
 import EntireWrapper from './style'
@@ -10,13 +9,9 @@ import { isEmptyObj } from '@/utils/isEmptyObj'
 
 const Entire = memo((props) => {
   // 发送网络请求
-  const { RoomList, offset, page } = useSelector((state) => ({
+  const { RoomList } = useSelector((state) => ({
     RoomList: state.entire.RoomList,
-    offset: state.entire.offset,
-    page: state.entire.page,
-
   }), shallowEqual)
-
 
   const dispatch = useDispatch()
   useEffect(() => {
@@ -36,6 +31,5 @@ const Entire = memo((props) => {
   )
 })
 
-Entire.propTypes = {}
 
 export default Entire

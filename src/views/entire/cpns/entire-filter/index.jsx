@@ -1,10 +1,9 @@
-import PropTypes from 'prop-types'
 import React, { memo, useState } from 'react'
 import FilterWrapper from './style'
 import filterData from '@/assets/data/filter_data.json'
 import classNames from 'classnames'
 
-const EntireFilter = memo((props) => {
+const EntireFilter = memo(() => {
   const [ activeIndexArr, setIndexArr ] = useState([])
 
   const itemClick = (index) => {
@@ -27,6 +26,5 @@ const EntireFilter = memo((props) => {
   )
 })
 
-EntireFilter.propTypes = {}
 
 export default EntireFilter

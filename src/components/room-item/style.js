@@ -31,7 +31,25 @@ const RoomWrapper = styled.div`
         background-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.25) 100%);
       }
     }
-
+    .indicator {
+      position: absolute;
+      width: 50px;
+      bottom: 8%;
+      left: 50%;
+      transform: translateX(-50%);
+      .sign {
+        background-color: rgba(255, 255, 255, 0.5);
+        width: 5px;
+        height: 5px;
+        margin-right: 5px;
+        border-radius: 50%;
+      }
+      .signActive {
+        background-color: white;
+        width: 6px;
+        height: 6px;
+      }
+    }
   }
 
   .cover {
@@ -46,9 +64,11 @@ const RoomWrapper = styled.div`
       width: 100%;
       height: 100%;
       object-fit: cover;
+      cursor: pointer;
     }
   }
   .desc {
+    cursor: pointer;
     .tip {
       color: ${props => props.verifyColor};
       padding: 5px 0;

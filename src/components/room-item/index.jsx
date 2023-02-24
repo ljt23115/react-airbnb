@@ -1,14 +1,17 @@
 import PropTypes from 'prop-types'
-import React, { memo, useRef } from 'react'
+import React, { memo, useRef, useState } from 'react'
 
 import RoomWrapper from './style'
 import Rating from '@mui/material/Rating';
 import { Carousel } from 'antd';
 import LeftBtn from '@/assets/svg/leftbtn';
 import RightBtn from '@/assets/svg/rightbtn';
+import Indicator from '@/base-ui/indicator';
+import classNames from 'classnames';
 
 const RoomItem = memo((props) => {
-  const { itemData, roomNum } = props
+  const { itemData, roomNum, itemClick } = props
+  const [ currentIndex, setIndex ] = useState(0)
 
   const swipperRef = useRef()
 
@@ -18,13 +21,19 @@ const RoomItem = memo((props) => {
     } else {
       swipperRef.current?.next()
     }
+
+    if (!isLeft && currentIndex === itemData.picture_urls?.length - 1) {
+      setIndex(0)
+      return
+    } else if( isLeft && currentIndex === 0 ) {
+      setIndex(itemData.picture_urls?.length - 1)
+      return
+    }
+    !isLeft ? setIndex(currentIndex + 1) : setIndex(currentIndex - 1)
   }
 
   return (
-    <RoomWrapper verifyColor={itemData?.verify_info?.text_color || "#39576a"} roomWidth={((100 / roomNum * 2) || 25 ) + "%"}>
-      {/* <div className="cover">
-        <img src={itemData.picture_url} alt="" />
-      </div> */}     
+    <RoomWrapper verifyColor={itemData?.verify_info?.text_color || "#39576a"} roomWidth={((100 / roomNum * 2) || 25 ) + "%"} onClick={() => itemClick(itemData)}> 
 
       {
         itemData.picture_urls ? 
@@ -44,6 +53,15 @@ const RoomItem = memo((props) => {
               })
             }
           </Carousel>
+          <div className="indicator">
+            <Indicator currentIndex={currentIndex}>
+              {
+                itemData.picture_urls?.map((item, index) => (
+                  <div className={classNames("sign", { signActive: currentIndex === index })} key={item}></div>
+                ))
+              }
+            </Indicator>
+          </div>
         </div>
         :(
           <div className="cover">
@@ -79,7 +97,8 @@ const RoomItem = memo((props) => {
 
 RoomItem.propTypes = {
   itemData: PropTypes.object,
-  roomNum: PropTypes.number
+  roomNum: PropTypes.number,
+  itemClick: PropTypes.func
 }
 
 export default RoomItem
